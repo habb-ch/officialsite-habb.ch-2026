@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { supabase } from '@/lib/supabase'
 import { getSession } from '@/lib/auth'
 
 interface RouteParams {
   params: Promise<{ id: string }>
 }
+
+const faqTable = process.env.SUPABASE_FAQ_TABLE || 'Faq'
 
 // Update FAQ
 export async function PUT(request: NextRequest, { params }: RouteParams) {
@@ -16,31 +18,35 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
 
     const { id } = await params
     const body = await request.json()
-    
-    const faq = await prisma.faq.update({
-      where: { id },
-      data: {
+
+    const { data, error } = await supabase
+      .from(faqTable)
+      .update({
         questionEn: body.questionEn,
         questionDe: body.questionDe || null,
         answerEn: body.answerEn,
         answerDe: body.answerDe || null,
         order: body.order || 0,
         visible: body.visible ?? true,
-      },
-    })
+      })
+      .eq('id', id)
+      .select()
+      .single()
 
-    return NextResponse.json({ faq })
+    if (error || !data) {
+      console.error('Supabase update FAQ error:', error)
+      return NextResponse.json({ error: 'Failed to update FAQ' }, { status: 500 })
+    }
+
+    return NextResponse.json({ faq: data })
   } catch (error) {
     console.error('Update FAQ error:', error)
-    return NextResponse.json(
-      { error: 'Failed to update FAQ' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to update FAQ' }, { status: 500 })
   }
 }
 
 // Delete FAQ
-export async function DELETE(request: NextRequest, { params }: RouteParams) {
+export async function DELETE(_request: NextRequest, { params }: RouteParams) {
   try {
     const session = await getSession()
     if (!session) {
@@ -48,23 +54,22 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
     }
 
     const { id } = await params
-    
-    await prisma.faq.delete({
-      where: { id },
-    })
+
+    const { error } = await supabase.from(faqTable).delete().eq('id', id)
+    if (error) {
+      console.error('Supabase delete FAQ error:', error)
+      return NextResponse.json({ error: 'Failed to delete FAQ' }, { status: 500 })
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Delete FAQ error:', error)
-    return NextResponse.json(
-      { error: 'Failed to delete FAQ' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to delete FAQ' }, { status: 500 })
   }
 }
 
 // Get single FAQ
-export async function GET(request: NextRequest, { params }: RouteParams) {
+export async function GET(_request: NextRequest, { params }: RouteParams) {
   try {
     const session = await getSession()
     if (!session) {
@@ -72,21 +77,21 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     }
 
     const { id } = await params
-    
-    const faq = await prisma.faq.findUnique({
-      where: { id },
-    })
 
-    if (!faq) {
+    const { data, error } = await supabase.from(faqTable).select('*').eq('id', id).single()
+
+    if (error) {
+      console.error('Supabase fetch FAQ error:', error)
+      return NextResponse.json({ error: 'Failed to fetch FAQ' }, { status: 500 })
+    }
+
+    if (!data) {
       return NextResponse.json({ error: 'FAQ not found' }, { status: 404 })
     }
 
-    return NextResponse.json({ faq })
+    return NextResponse.json({ faq: data })
   } catch (error) {
     console.error('Get FAQ error:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch FAQ' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to fetch FAQ' }, { status: 500 })
   }
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button, Input, Textarea, Card, CardContent, CardHeader } from '@/components/ui'
 import { Save, ArrowLeft, Globe } from 'lucide-react'
@@ -30,6 +30,18 @@ export function FaqForm({ faq }: FaqFormProps) {
     order: faq?.order || 0,
     visible: faq?.visible ?? true,
   })
+
+  // Sync form when `faq` prop changes (client navigation)
+  useEffect(() => {
+    setFormData({
+      questionEn: faq?.questionEn || '',
+      questionDe: faq?.questionDe || '',
+      answerEn: faq?.answerEn || '',
+      answerDe: faq?.answerDe || '',
+      order: faq?.order || 0,
+      visible: faq?.visible ?? true,
+    })
+  }, [faq])
 
   function handleChange(field: string, value: string | number | boolean) {
     setFormData((prev) => ({ ...prev, [field]: value }))

@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { supabase } from '@/lib/supabase'
 import { getSession } from '@/lib/auth'
 
 interface RouteParams {
   params: Promise<{ id: string }>
 }
 
-export async function POST(request: NextRequest, { params }: RouteParams) {
+const faqTable = process.env.SUPABASE_FAQ_TABLE || 'Faq'
+
+export async function POST(_request: NextRequest, { params }: RouteParams) {
   try {
     const session = await getSession()
     if (!session) {
@@ -14,26 +16,33 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     }
 
     const { id } = await params
-    
-    const faq = await prisma.faq.findUnique({
-      where: { id },
-    })
 
-    if (!faq) {
+    const { data: faq, error: fetchError } = await supabase
+      .from(faqTable)
+      .select('visible')
+      .eq('id', id)
+      .single()
+
+    if (fetchError) {
+      console.error('Supabase fetch FAQ error:', fetchError)
       return NextResponse.json({ error: 'FAQ not found' }, { status: 404 })
     }
 
-    const updatedFaq = await prisma.faq.update({
-      where: { id },
-      data: { visible: !faq.visible },
-    })
+    const { data: updatedFaq, error: updateError } = await supabase
+      .from(faqTable)
+      .update({ visible: !faq?.visible })
+      .eq('id', id)
+      .select()
+      .single()
+
+    if (updateError || !updatedFaq) {
+      console.error('Supabase toggle visibility error:', updateError)
+      return NextResponse.json({ error: 'Failed to toggle visibility' }, { status: 500 })
+    }
 
     return NextResponse.json({ faq: updatedFaq })
   } catch (error) {
     console.error('Toggle visibility error:', error)
-    return NextResponse.json(
-      { error: 'Failed to toggle visibility' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to toggle visibility' }, { status: 500 })
   }
 }

@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 
+// Always fetch fresh data
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 export default async function ContactsPage() {
   // Fetch contact submissions from Supabase
   let submissions = [] as any[]

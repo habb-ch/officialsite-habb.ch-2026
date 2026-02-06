@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button, Input, Textarea, Card, CardContent, CardHeader } from '@/components/ui'
 import { Save, ArrowLeft, Globe } from 'lucide-react'
@@ -47,6 +47,26 @@ export function PostForm({ post }: PostFormProps) {
     metaDescDe: post?.metaDescDe || '',
     published: post?.published || false,
   })
+
+  // Sync form state when `post` prop changes (client navigation)
+  useEffect(() => {
+    setFormData({
+      slug: post?.slug || '',
+      titleEn: post?.titleEn || '',
+      titleDe: post?.titleDe || '',
+      excerptEn: post?.excerptEn || '',
+      excerptDe: post?.excerptDe || '',
+      contentEn: post?.contentEn || '',
+      contentDe: post?.contentDe || '',
+      imageUrl: post?.imageUrl || '',
+      imageAlt: post?.imageAlt || '',
+      metaTitleEn: post?.metaTitleEn || '',
+      metaTitleDe: post?.metaTitleDe || '',
+      metaDescEn: post?.metaDescEn || '',
+      metaDescDe: post?.metaDescDe || '',
+      published: post?.published || false,
+    })
+  }, [post])
 
   function handleChange(field: string, value: string | boolean) {
     setFormData((prev) => ({ ...prev, [field]: value }))

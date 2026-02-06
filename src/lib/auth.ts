@@ -1,4 +1,4 @@
-import { SignJWT, jwtVerify } from 'jose'
+import { SignJWT, jwtVerify, type JWTPayload as JoseJWTPayload } from 'jose'
 import { cookies } from 'next/headers'
 import bcrypt from 'bcryptjs'
 
@@ -6,7 +6,7 @@ const JWT_SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET || 'fallback-secret-key'
 )
 
-export interface JWTPayload {
+export type JWTPayload = JoseJWTPayload & {
   userId: string
   email: string
   role: string

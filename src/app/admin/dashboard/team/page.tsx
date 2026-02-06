@@ -4,7 +4,13 @@ import { supabase } from '@/lib/supabase'
 import { TeamDeleteButton } from '@/components/admin/TeamDeleteButton'
 import { TeamOrderForm } from '@/components/admin/TeamOrderForm'
 
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 export default async function TeamListPage() {
+  // Always fetch latest team data in admin list
+  // (admin views should not serve cached content)
+  
   let members: any[] = []
   try {
     const { data, error } = await supabase

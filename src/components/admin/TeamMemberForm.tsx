@@ -1,7 +1,7 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button, Input } from '@/components/ui'
 
@@ -105,6 +105,16 @@ export function TeamMemberForm({ mode, member }: TeamMemberFormProps) {
       setIsSubmitting(false)
     }
   }
+
+  // Sync state when `member` prop changes (client navigation / edits)
+  useEffect(() => {
+    setName(member?.name ?? '')
+    setPosition(member?.position ?? '')
+    setOrder(member?.order ?? 0)
+    setVisible(member?.visible ?? true)
+    setPreview(member?.imageUrl ?? null)
+    setFile(null)
+  }, [member])
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-lg">

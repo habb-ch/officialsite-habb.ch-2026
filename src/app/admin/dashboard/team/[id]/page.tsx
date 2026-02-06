@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
-import { prisma } from '@/lib/prisma'
 import { TeamMemberForm } from '@/components/admin/TeamMemberForm'
+import { supabase } from '@/lib/supabase'
 
 interface PageProps {
   params: {
@@ -8,8 +8,18 @@ interface PageProps {
   }
 }
 
+const teamTable = process.env.SUPABASE_TEAM_TABLE || 'TeamMember'
+
 export default async function EditTeamMemberPage({ params }: PageProps) {
-  const member = await prisma.teamMember.findUnique({ where: { id: params.id } })
+  const { data: member, error } = await supabase
+    .from(teamTable)
+    .select('*')
+    .eq('id', params.id)
+    .single()
+
+  if (error) {
+    console.error('Supabase fetch team member error:', error)
+  }
 
   if (!member) {
     notFound()

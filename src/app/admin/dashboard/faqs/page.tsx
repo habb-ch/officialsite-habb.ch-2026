@@ -5,6 +5,10 @@ import { Plus, Edit, Eye, EyeOff, Trash2, GripVertical } from 'lucide-react'
 import { DeleteFaqButton } from './DeleteFaqButton'
 import { ToggleVisibilityButton } from './ToggleVisibilityButton'
 
+// Always fetch fresh data
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 async function getFaqs() {
   try {
     const table = process.env.SUPABASE_FAQ_TABLE || 'Faq'

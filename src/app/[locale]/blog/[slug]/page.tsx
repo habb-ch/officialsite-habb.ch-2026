@@ -12,6 +12,10 @@ interface PageProps {
   params: Promise<{ locale: string; slug: string }>
 }
 
+// Always fetch fresh content and metadata
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 async function getPost(slug: string) {
   try {
     const table = process.env.SUPABASE_POST_TABLE || 'Post'

@@ -6,6 +6,10 @@ import { formatDate } from '@/lib/utils'
 import { DeletePostButton } from './DeletePostButton'
 import { TogglePublishButton } from './TogglePublishButton'
 
+// Always fetch fresh data
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 async function getPosts() {
   try {
     const table = process.env.SUPABASE_POST_TABLE || 'Post'

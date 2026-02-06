@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   html {
@@ -91,12 +91,14 @@
   background: #a1a1a1;
 }
 
-/* Focus styles */
+/* Focus styles (explicit values to avoid @apply build issues) */
 *:focus-visible {
-  @apply outline-none ring-2 ring-swiss-red ring-offset-2;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(218, 41, 28, 0.14); /* swiss red 14% */
 }
 
 /* Selection color */
 ::selection {
-  @apply bg-swiss-red/20 text-swiss-red-dark;
+  background-color: rgba(218, 41, 28, 0.12);
+  color: #B82318; /* swiss-red-dark */
 }

@@ -11,6 +11,10 @@ interface PageProps {
   params: Promise<{ locale: string }>
 }
 
+// Always fetch fresh blog data
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)

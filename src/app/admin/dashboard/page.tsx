@@ -1,40 +1,47 @@
-import { prisma } from '@/lib/prisma'
-import { Card, CardContent, CardHeader } from '@/components/ui'
-import { FileText, HelpCircle, Users, Eye, Mail } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui'
+import { FileText, HelpCircle, Eye, Mail } from 'lucide-react'
 import Link from 'next/link'
+import { supabase } from '@/lib/supabase'
+
+// Always fetch fresh data
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
+const postTable = process.env.SUPABASE_POST_TABLE || 'Post'
+const faqTable = process.env.SUPABASE_FAQ_TABLE || 'Faq'
+const contactTable = process.env.SUPABASE_CONTACT_TABLE || 'ContactSubmission'
+
+async function getCount(table: string, apply?: (query: any) => any) {
+  const baseQuery: any = supabase.from(table).select('*', { count: 'exact', head: true })
+  const { count, error } = apply ? await apply(baseQuery) : await baseQuery
+  if (error) {
+    console.error(`Supabase count error for ${table}:`, error)
+    return 0
+  }
+  return count ?? 0
+}
 
 async function getStats() {
-  try {
-    const [
-      postsCount,
-      publishedPostsCount,
-      faqsCount,
-      visibleFaqsCount,
-      contactsCount,
-      recentContacts,
-    ] = await Promise.all([
-      prisma.post.count(),
-      prisma.post.count({ where: { published: true } }),
-      prisma.faq.count(),
-      prisma.faq.count({ where: { visible: true } }),
-      prisma.contactSubmission.count(),
-      prisma.contactSubmission.findMany({
-        orderBy: { createdAt: 'desc' },
-        take: 5,
-      }),
+  const [postsTotal, postsPublished, faqsTotal, faqsVisible, contactsTotal, contactsList] =
+    await Promise.all([
+      getCount(postTable),
+      getCount(postTable, (q) => q.eq('published', true)),
+      getCount(faqTable),
+      getCount(faqTable, (q) => q.eq('visible', true)),
+      getCount(contactTable),
+      supabase
+        .from(contactTable)
+        .select('*')
+        .order('createdAt', { ascending: false })
+        .limit(5),
     ])
 
-    return {
-      posts: { total: postsCount, published: publishedPostsCount },
-      faqs: { total: faqsCount, visible: visibleFaqsCount },
-      contacts: { total: contactsCount, recent: recentContacts },
-    }
-  } catch {
-    return {
-      posts: { total: 0, published: 0 },
-      faqs: { total: 0, visible: 0 },
-      contacts: { total: 0, recent: [] },
-    }
+  const recentContacts = contactsList?.data ?? []
+
+  return {
+    posts: { total: postsTotal, published: postsPublished },
+    faqs: { total: faqsTotal, visible: faqsVisible },
+    contacts: { total: contactsTotal, recent: recentContacts },
   }
 }
 

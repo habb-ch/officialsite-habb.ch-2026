@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { supabase } from '@/lib/supabase'
 import { getSession } from '@/lib/auth'
 
 interface RouteParams {
   params: Promise<{ id: string }>
 }
+
+const postTable = process.env.SUPABASE_POST_TABLE || 'Post'
 
 // Update post
 export async function PUT(request: NextRequest, { params }: RouteParams) {
@@ -16,10 +18,10 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
 
     const { id } = await params
     const body = await request.json()
-    
-    const post = await prisma.post.update({
-      where: { id },
-      data: {
+
+    const { data, error } = await supabase
+      .from(postTable)
+      .update({
         slug: body.slug,
         titleEn: body.titleEn,
         titleDe: body.titleDe || null,
@@ -34,21 +36,25 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
         metaDescEn: body.metaDescEn || null,
         metaDescDe: body.metaDescDe || null,
         published: body.published || false,
-      },
-    })
+      })
+      .eq('id', id)
+      .select()
+      .single()
 
-    return NextResponse.json({ post })
+    if (error || !data) {
+      console.error('Supabase update post error:', error)
+      return NextResponse.json({ error: 'Failed to update post' }, { status: 500 })
+    }
+
+    return NextResponse.json({ post: data })
   } catch (error) {
     console.error('Update post error:', error)
-    return NextResponse.json(
-      { error: 'Failed to update post' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to update post' }, { status: 500 })
   }
 }
 
 // Delete post
-export async function DELETE(request: NextRequest, { params }: RouteParams) {
+export async function DELETE(_request: NextRequest, { params }: RouteParams) {
   try {
     const session = await getSession()
     if (!session) {
@@ -56,23 +62,22 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
     }
 
     const { id } = await params
-    
-    await prisma.post.delete({
-      where: { id },
-    })
+
+    const { error } = await supabase.from(postTable).delete().eq('id', id)
+    if (error) {
+      console.error('Supabase delete post error:', error)
+      return NextResponse.json({ error: 'Failed to delete post' }, { status: 500 })
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Delete post error:', error)
-    return NextResponse.json(
-      { error: 'Failed to delete post' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to delete post' }, { status: 500 })
   }
 }
 
 // Get single post
-export async function GET(request: NextRequest, { params }: RouteParams) {
+export async function GET(_request: NextRequest, { params }: RouteParams) {
   try {
     const session = await getSession()
     if (!session) {
@@ -80,21 +85,20 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     }
 
     const { id } = await params
-    
-    const post = await prisma.post.findUnique({
-      where: { id },
-    })
 
-    if (!post) {
+    const { data, error } = await supabase.from(postTable).select('*').eq('id', id).single()
+    if (error) {
+      console.error('Supabase fetch post error:', error)
+      return NextResponse.json({ error: 'Failed to fetch post' }, { status: 500 })
+    }
+
+    if (!data) {
       return NextResponse.json({ error: 'Post not found' }, { status: 404 })
     }
 
-    return NextResponse.json({ post })
+    return NextResponse.json({ post: data })
   } catch (error) {
     console.error('Get post error:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch post' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to fetch post' }, { status: 500 })
   }
 }
