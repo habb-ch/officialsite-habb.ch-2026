@@ -84,9 +84,9 @@ export default async function PrivacyPage({ params }: PageProps) {
                 {locale === 'de' ? 'Datenschutzbeauftragter' : 'Data Protection Officer'}
               </h3>
               <div className="text-habb-gray-600 space-y-2">
-                <p>Habb.ch AG</p>
-                <p>Bahnhofstrasse 1</p>
-                <p>8001 Zürich, {locale === 'de' ? 'Schweiz' : 'Switzerland'}</p>
+                <p>Habb.ch</p>
+                <p>Sonnheimstrasse 6</p>
+                <p>3415 Rüegsauschachen, {locale === 'de' ? 'Schweiz' : 'Switzerland'}</p>
                 <p className="mt-4">
                   <a href="mailto:privacy@habb.ch" className="text-swiss-red hover:underline">
                     privacy@habb.ch

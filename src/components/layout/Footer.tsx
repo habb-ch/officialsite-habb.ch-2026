@@ -92,7 +92,7 @@ export function Footer({ locale }: FooterProps) {
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('contact.info.title')}</h3>
             <div className="space-y-3 text-sm text-habb-gray-400">
-              <p>Habb.ch AG</p>
+              <p>Habb.ch</p>
               <p>Sonnheimstrasse 6</p>
               <p>3415 Ruegsauschachen, {t('contact.office.country')}</p>
               <p className="pt-2">
