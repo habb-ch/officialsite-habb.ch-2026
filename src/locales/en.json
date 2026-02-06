@@ -1,0 +1,268 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "footer": {
+    "company": "Habb.ch",
+    "description": "Swiss precision in technology solutions. We deliver enterprise-grade services with reliability and innovation.",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "adminLogin": "Admin Login",
+    "copyright": "© {year} Habb.ch. All rights reserved.",
+    "swiss": "Made with precision in Switzerland"
+  },
+  "home": {
+    "hero": {
+      "title": "Swiss Excellence in Technology",
+      "subtitle": "Enterprise-grade solutions built with precision, reliability, and innovation",
+      "cta": "Discover Our Services",
+      "secondary": "Learn More"
+    },
+    "features": {
+      "title": "Why Choose Habb.ch",
+      "subtitle": "We combine Swiss precision with cutting-edge technology",
+      "security": {
+        "title": "Enterprise Security",
+        "description": "Bank-grade security protocols protecting your data with Swiss precision and regulatory compliance."
+      },
+      "reliability": {
+        "title": "99.9% Uptime",
+        "description": "Our infrastructure ensures your business runs smoothly with guaranteed availability and performance."
+      },
+      "support": {
+        "title": "24/7 Expert Support",
+        "description": "Dedicated technical specialists available around the clock to assist with any requirements."
+      },
+      "innovation": {
+        "title": "Cutting-Edge Solutions",
+        "description": "Leveraging the latest technologies to deliver modern, scalable, and future-proof solutions."
+      }
+    },
+    "about": {
+      "title": "Trusted by Leading Organizations",
+      "description": "Habb.ch delivers technology solutions that meet the highest standards of quality and reliability. Our Swiss heritage drives our commitment to precision and excellence in everything we do.",
+      "stat1": "Years of Experience",
+      "stat2": "Satisfied Clients",
+      "stat3": "Projects Delivered",
+      "stat4": "Uptime Guarantee"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive technology solutions tailored to your business needs",
+      "viewAll": "View All Services"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Contact us today to discuss how we can help you achieve your technology goals with Swiss precision.",
+      "button": "Get in Touch"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Habb.ch",
+      "subtitle": "Swiss precision meets technological excellence"
+    },
+    "story": {
+      "title": "Our Story",
+      "p1": "Founded in Switzerland, Habb.ch emerged from a vision to combine traditional Swiss values of precision, reliability, and quality with modern technological innovation.",
+      "p2": "We believe that technology should empower businesses, not complicate them. Our team of experts works tirelessly to deliver solutions that are not only technically excellent but also practical and user-friendly.",
+      "p3": "Today, we serve clients across industries, helping them navigate the digital landscape with confidence and success."
+    },
+    "values": {
+      "title": "Our Values",
+      "precision": {
+        "title": "Precision",
+        "description": "Every solution we deliver is crafted with meticulous attention to detail."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "Our clients trust us because we consistently deliver on our promises."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We stay at the forefront of technology to provide cutting-edge solutions."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "We conduct business with transparency and ethical standards."
+      }
+    },
+    "team": {
+      "title": "Leadership Team",
+      "subtitle": "Meet the experts driving our success"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive technology solutions for modern businesses"
+    },
+    "cloud": {
+      "title": "Cloud Infrastructure",
+      "description": "Secure, scalable cloud solutions hosted in Swiss data centers. Enterprise-grade infrastructure with guaranteed data sovereignty and compliance.",
+      "features": ["Swiss Data Residency", "Auto-Scaling", "Disaster Recovery", "24/7 Monitoring"]
+    },
+    "consulting": {
+      "title": "Technology Consulting",
+      "description": "Strategic guidance from experienced professionals. We help you make informed decisions about your technology investments.",
+      "features": ["Digital Strategy", "Architecture Review", "Security Assessment", "Compliance Advisory"]
+    },
+    "development": {
+      "title": "Custom Development",
+      "description": "Bespoke software solutions tailored to your unique business requirements. From concept to deployment and beyond.",
+      "features": ["Web Applications", "Mobile Apps", "API Development", "System Integration"]
+    },
+    "security": {
+      "title": "Cybersecurity",
+      "description": "Comprehensive security services to protect your digital assets. Proactive threat detection and response.",
+      "features": ["Penetration Testing", "Security Audits", "Compliance Management", "Incident Response"]
+    },
+    "managed": {
+      "title": "Managed Services",
+      "description": "End-to-end IT management so you can focus on your core business. Reliable support when you need it.",
+      "features": ["Infrastructure Management", "Help Desk Support", "Backup & Recovery", "Performance Optimization"]
+    },
+    "data": {
+      "title": "Data Solutions",
+      "description": "Unlock the power of your data with advanced analytics and intelligent insights.",
+      "features": ["Data Analytics", "Business Intelligence", "Machine Learning", "Data Governance"]
+    },
+    "cta": {
+      "title": "Need a Custom Solution?",
+      "description": "Contact our team to discuss your specific requirements.",
+      "button": "Contact Us"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights, news, and thought leadership from our experts",
+    "readMore": "Read More",
+    "publishedOn": "Published on",
+    "by": "by",
+    "backToList": "Back to Blog",
+    "noPosts": "No blog posts available yet.",
+    "categories": "Categories",
+    "recentPosts": "Recent Posts"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our services",
+    "noFaqs": "No FAQs available.",
+    "contact": {
+      "title": "Still have questions?",
+      "description": "Our team is here to help. Contact us for personalized assistance.",
+      "button": "Contact Support"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "company": "Company Name",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Thank you for your message. We'll get back to you soon.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone",
+      "hours": "Business Hours",
+      "hoursValue": "Monday - Friday: 9:00 - 18:00 CET"
+    },
+    "office": {
+      "title": "Our Office",
+      "country": "Switzerland"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: {date}",
+    "sections": {
+      "intro": {
+        "title": "Introduction",
+        "content": "Habb.ch is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information."
+      },
+      "collection": {
+        "title": "Information We Collect",
+        "content": "We collect information you provide directly, such as contact details when you fill out forms, as well as technical data like IP addresses and browser information."
+      },
+      "usage": {
+        "title": "How We Use Your Information",
+        "content": "We use your information to provide our services, communicate with you, improve our offerings, and comply with legal obligations."
+      },
+      "security": {
+        "title": "Data Security",
+        "content": "We implement robust security measures to protect your data, including encryption, access controls, and regular security audits."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "content": "You have the right to access, correct, or delete your personal data. Contact us to exercise these rights."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "For privacy-related inquiries, please contact our data protection team."
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last updated: {date}",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By accessing and using this website, you accept and agree to be bound by these terms and conditions."
+      },
+      "services": {
+        "title": "Our Services",
+        "content": "Habb.ch provides technology solutions and services. Specific terms may apply to individual services as outlined in separate agreements."
+      },
+      "intellectual": {
+        "title": "Intellectual Property",
+        "content": "All content on this website, including text, graphics, and software, is the property of Habb.ch and protected by intellectual property laws."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "Habb.ch shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services."
+      },
+      "governing": {
+        "title": "Governing Law",
+        "content": "These terms are governed by the laws of Switzerland. Any disputes shall be resolved in Swiss courts."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "We reserve the right to modify these terms at any time. Continued use of the website constitutes acceptance of updated terms."
+      }
+    }
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "back": "Back",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
+  }
+}

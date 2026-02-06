@@ -1,0 +1,268 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "services": "Dienstleistungen",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "company": "Habb.ch",
+    "description": "Schweizer Präzision in Technologielösungen. Wir liefern unternehmensgerechte Dienste mit Zuverlässigkeit und Innovation.",
+    "quickLinks": "Schnelllinks",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "adminLogin": "Admin-Login",
+    "copyright": "© {year} Habb.ch. Alle Rechte vorbehalten.",
+    "swiss": "Mit Präzision in der Schweiz hergestellt"
+  },
+  "home": {
+    "hero": {
+      "title": "Schweizer Exzellenz in Technologie",
+      "subtitle": "Unternehmensgerechte Lösungen mit Präzision, Zuverlässigkeit und Innovation",
+      "cta": "Unsere Dienste entdecken",
+      "secondary": "Mehr erfahren"
+    },
+    "features": {
+      "title": "Warum Habb.ch wählen",
+      "subtitle": "Wir verbinden Schweizer Präzision mit modernster Technologie",
+      "security": {
+        "title": "Enterprise-Sicherheit",
+        "description": "Bankgrade Sicherheitsprotokolle schützen Ihre Daten mit Schweizer Präzision und regulatorischer Konformität."
+      },
+      "reliability": {
+        "title": "99,9% Verfügbarkeit",
+        "description": "Unsere Infrastruktur gewährleistet einen reibungslosen Betrieb mit garantierter Verfügbarkeit und Leistung."
+      },
+      "support": {
+        "title": "24/7 Experten-Support",
+        "description": "Dedizierte technische Spezialisten stehen rund um die Uhr zur Verfügung."
+      },
+      "innovation": {
+        "title": "Innovative Lösungen",
+        "description": "Nutzung neuester Technologien für moderne, skalierbare und zukunftssichere Lösungen."
+      }
+    },
+    "about": {
+      "title": "Vertrauen führender Organisationen",
+      "description": "Habb.ch liefert Technologielösungen, die höchsten Qualitäts- und Zuverlässigkeitsstandards entsprechen. Unser Schweizer Erbe treibt unser Engagement für Präzision und Exzellenz.",
+      "stat1": "Jahre Erfahrung",
+      "stat2": "Zufriedene Kunden",
+      "stat3": "Projekte geliefert",
+      "stat4": "Verfügbarkeitsgarantie"
+    },
+    "services": {
+      "title": "Unsere Dienstleistungen",
+      "subtitle": "Umfassende Technologielösungen für Ihre Geschäftsanforderungen",
+      "viewAll": "Alle Dienste anzeigen"
+    },
+    "cta": {
+      "title": "Bereit, Ihr Unternehmen zu transformieren?",
+      "description": "Kontaktieren Sie uns heute, um zu besprechen, wie wir Ihnen helfen können.",
+      "button": "Kontakt aufnehmen"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Über Habb.ch",
+      "subtitle": "Schweizer Präzision trifft technologische Exzellenz"
+    },
+    "story": {
+      "title": "Unsere Geschichte",
+      "p1": "Habb.ch wurde in der Schweiz gegründet und entstand aus der Vision, traditionelle Schweizer Werte wie Präzision, Zuverlässigkeit und Qualität mit moderner technologischer Innovation zu verbinden.",
+      "p2": "Wir glauben, dass Technologie Unternehmen stärken sollte, nicht komplizieren. Unser Expertenteam arbeitet unermüdlich daran, Lösungen zu liefern, die nicht nur technisch exzellent, sondern auch praktisch und benutzerfreundlich sind.",
+      "p3": "Heute bedienen wir Kunden aus verschiedenen Branchen und helfen ihnen, die digitale Landschaft mit Zuversicht und Erfolg zu navigieren."
+    },
+    "values": {
+      "title": "Unsere Werte",
+      "precision": {
+        "title": "Präzision",
+        "description": "Jede Lösung wird mit akribischer Liebe zum Detail gefertigt."
+      },
+      "reliability": {
+        "title": "Zuverlässigkeit",
+        "description": "Unsere Kunden vertrauen uns, weil wir konsequent liefern."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Wir bleiben an der Spitze der Technologie."
+      },
+      "integrity": {
+        "title": "Integrität",
+        "description": "Wir führen Geschäfte mit Transparenz und ethischen Standards."
+      }
+    },
+    "team": {
+      "title": "Führungsteam",
+      "subtitle": "Lernen Sie die Experten kennen, die unseren Erfolg vorantreiben"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Unsere Dienstleistungen",
+      "subtitle": "Umfassende Technologielösungen für moderne Unternehmen"
+    },
+    "cloud": {
+      "title": "Cloud-Infrastruktur",
+      "description": "Sichere, skalierbare Cloud-Lösungen in Schweizer Rechenzentren. Enterprise-Infrastruktur mit garantierter Datenhoheit.",
+      "features": ["Schweizer Datenhaltung", "Auto-Skalierung", "Disaster Recovery", "24/7 Überwachung"]
+    },
+    "consulting": {
+      "title": "Technologieberatung",
+      "description": "Strategische Beratung von erfahrenen Fachleuten. Wir helfen Ihnen bei fundierten Technologieentscheidungen.",
+      "features": ["Digitale Strategie", "Architektur-Review", "Sicherheitsbewertung", "Compliance-Beratung"]
+    },
+    "development": {
+      "title": "Individuelle Entwicklung",
+      "description": "Massgeschneiderte Softwarelösungen für Ihre einzigartigen Geschäftsanforderungen.",
+      "features": ["Webanwendungen", "Mobile Apps", "API-Entwicklung", "Systemintegration"]
+    },
+    "security": {
+      "title": "Cybersicherheit",
+      "description": "Umfassende Sicherheitsdienste zum Schutz Ihrer digitalen Assets. Proaktive Bedrohungserkennung.",
+      "features": ["Penetrationstests", "Sicherheitsaudits", "Compliance-Management", "Incident Response"]
+    },
+    "managed": {
+      "title": "Managed Services",
+      "description": "End-to-End IT-Management, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.",
+      "features": ["Infrastruktur-Management", "Help Desk Support", "Backup & Recovery", "Performance-Optimierung"]
+    },
+    "data": {
+      "title": "Datenlösungen",
+      "description": "Erschliessen Sie die Macht Ihrer Daten mit fortschrittlicher Analytik.",
+      "features": ["Datenanalyse", "Business Intelligence", "Machine Learning", "Data Governance"]
+    },
+    "cta": {
+      "title": "Benötigen Sie eine individuelle Lösung?",
+      "description": "Kontaktieren Sie unser Team, um Ihre spezifischen Anforderungen zu besprechen.",
+      "button": "Kontaktieren Sie uns"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Einblicke, Neuigkeiten und Thought Leadership von unseren Experten",
+    "readMore": "Weiterlesen",
+    "publishedOn": "Veröffentlicht am",
+    "by": "von",
+    "backToList": "Zurück zum Blog",
+    "noPosts": "Noch keine Blog-Beiträge verfügbar.",
+    "categories": "Kategorien",
+    "recentPosts": "Neueste Beiträge"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Antworten auf häufige Fragen zu unseren Dienstleistungen",
+    "noFaqs": "Keine FAQs verfügbar.",
+    "contact": {
+      "title": "Noch Fragen?",
+      "description": "Unser Team ist hier, um zu helfen. Kontaktieren Sie uns für persönliche Unterstützung.",
+      "button": "Support kontaktieren"
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Nehmen Sie Kontakt mit unserem Team auf",
+    "form": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "company": "Firmenname",
+      "subject": "Betreff",
+      "message": "Ihre Nachricht",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Vielen Dank für Ihre Nachricht. Wir melden uns bald bei Ihnen.",
+      "error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
+    },
+    "info": {
+      "title": "Kontaktinformationen",
+      "address": "Adresse",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "hours": "Geschäftszeiten",
+      "hoursValue": "Montag - Freitag: 9:00 - 18:00 MEZ"
+    },
+    "office": {
+      "title": "Unser Büro",
+      "country": "Schweiz"
+    }
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Zuletzt aktualisiert: {date}",
+    "sections": {
+      "intro": {
+        "title": "Einführung",
+        "content": "Habb.ch verpflichtet sich zum Schutz Ihrer Privatsphäre. Diese Richtlinie erklärt, wie wir Ihre persönlichen Daten sammeln, verwenden und schützen."
+      },
+      "collection": {
+        "title": "Welche Daten wir sammeln",
+        "content": "Wir sammeln Informationen, die Sie direkt bereitstellen, wie Kontaktdaten bei Formularen, sowie technische Daten wie IP-Adressen und Browser-Informationen."
+      },
+      "usage": {
+        "title": "Wie wir Ihre Daten verwenden",
+        "content": "Wir verwenden Ihre Daten, um unsere Dienste bereitzustellen, mit Ihnen zu kommunizieren, unsere Angebote zu verbessern und gesetzliche Verpflichtungen zu erfüllen."
+      },
+      "security": {
+        "title": "Datensicherheit",
+        "content": "Wir implementieren robuste Sicherheitsmassnahmen zum Schutz Ihrer Daten, einschliesslich Verschlüsselung, Zugriffskontrollen und regelmässiger Sicherheitsaudits."
+      },
+      "rights": {
+        "title": "Ihre Rechte",
+        "content": "Sie haben das Recht, auf Ihre persönlichen Daten zuzugreifen, sie zu korrigieren oder zu löschen. Kontaktieren Sie uns, um diese Rechte auszuüben."
+      },
+      "contact": {
+        "title": "Kontakt",
+        "content": "Für datenschutzbezogene Anfragen wenden Sie sich bitte an unser Datenschutzteam."
+      }
+    }
+  },
+  "terms": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "lastUpdated": "Zuletzt aktualisiert: {date}",
+    "sections": {
+      "acceptance": {
+        "title": "Annahme der Bedingungen",
+        "content": "Durch den Zugriff auf diese Website akzeptieren Sie diese Geschäftsbedingungen."
+      },
+      "services": {
+        "title": "Unsere Dienstleistungen",
+        "content": "Habb.ch bietet Technologielösungen und -dienste an. Für einzelne Dienste können besondere Bedingungen gelten."
+      },
+      "intellectual": {
+        "title": "Geistiges Eigentum",
+        "content": "Alle Inhalte dieser Website, einschliesslich Text, Grafiken und Software, sind Eigentum von Habb.ch und urheberrechtlich geschützt."
+      },
+      "liability": {
+        "title": "Haftungsbeschränkung",
+        "content": "Habb.ch haftet nicht für indirekte, zufällige oder Folgeschäden, die aus der Nutzung unserer Dienste entstehen."
+      },
+      "governing": {
+        "title": "Anwendbares Recht",
+        "content": "Diese Bedingungen unterliegen dem Schweizer Recht. Streitigkeiten werden vor Schweizer Gerichten geklärt."
+      },
+      "changes": {
+        "title": "Änderungen der Bedingungen",
+        "content": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Die weitere Nutzung gilt als Annahme der aktualisierten Bedingungen."
+      }
+    }
+  },
+  "common": {
+    "learnMore": "Mehr erfahren",
+    "getStarted": "Loslegen",
+    "contactUs": "Kontaktieren Sie uns",
+    "readMore": "Weiterlesen",
+    "viewAll": "Alle anzeigen",
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Erfolg",
+    "back": "Zurück",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schliessen"
+  }
+}
