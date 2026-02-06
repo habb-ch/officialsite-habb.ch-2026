@@ -25,6 +25,7 @@ export default async function ContactPage({ params }: PageProps) {
 
   const formLabels = {
     name: t('contact.form.name'),
+    Phone: t('contact.form.phone'),
     email: t('contact.form.email'),
     company: t('contact.form.company'),
     subject: t('contact.form.subject'),
@@ -39,7 +40,7 @@ export default async function ContactPage({ params }: PageProps) {
     {
       icon: MapPin,
       label: t('contact.info.address'),
-      value: 'Bahnhofstrasse 1, 8001 Zürich',
+      value: 'Sonnheimstrasse 6, 3415 Rüegsauschachen',
       subValue: t('contact.office.country'),
     },
     {
@@ -51,7 +52,7 @@ export default async function ContactPage({ params }: PageProps) {
     {
       icon: Phone,
       label: t('contact.info.phone'),
-      value: '+41 44 000 00 00',
+      value: '+41 79 923 97 72',
       href: 'tel:+41440000000',
     },
     {
