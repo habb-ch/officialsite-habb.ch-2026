@@ -10,8 +10,8 @@ export function AboutSection({ locale }: AboutSectionProps) {
 
   const stats = [
     { value: '4+', label: t('home.about.stat1') },
-    { value: '35+', label: t('home.about.stat2') },
-    { value: '40+', label: t('home.about.stat3') },
+    { value: '6+', label: t('home.about.stat2') },
+    { value: '8+', label: t('home.about.stat3') },
     { value: '99.9%', label: t('home.about.stat4') },
   ]
 
