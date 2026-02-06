@@ -168,6 +168,7 @@
     "form": {
       "name": "Vollständiger Name",
       "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
       "company": "Firmenname",
       "subject": "Betreff",
       "message": "Ihre Nachricht",
