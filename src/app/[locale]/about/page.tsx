@@ -99,7 +99,7 @@ export default async function AboutPage({ params }: PageProps) {
               </div>
               {/* Stats overlay */}
               <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-habb-gray-100">
-                <div className="text-4xl font-bold text-swiss-red mb-1">10+</div>
+                <div className="text-4xl font-bold text-swiss-red mb-1">4+</div>
                 <div className="text-habb-gray-600 font-medium">{t('home.about.stat1')}</div>
               </div>
             </div>

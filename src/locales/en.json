@@ -30,15 +30,15 @@
       "subtitle": "We combine Swiss precision with cutting-edge technology",
       "security": {
         "title": "Enterprise Security",
-        "description": "Bank-grade security protocols protecting your data with Swiss precision and regulatory compliance."
+        "description": "Enterprise security architectures with Swiss data residency: local hosting, controlled access, and enterprise-grade security mechanisms."
       },
       "reliability": {
         "title": "99.9% Uptime",
         "description": "Our infrastructure ensures your business runs smoothly with guaranteed availability and performance."
       },
       "support": {
-        "title": "24/7 Expert Support",
-        "description": "Dedicated technical specialists available around the clock to assist with any requirements."
+        "title": "Free consultation",
+        "description": "We assess your needs and provide clear, actionable guidance on how technology, automation, and AI can support your business effectively."
       },
       "innovation": {
         "title": "Cutting-Edge Solutions",
@@ -71,9 +71,10 @@
     },
     "story": {
       "title": "Our Story",
-      "p1": "Founded in Switzerland, Habb.ch emerged from a vision to combine traditional Swiss values of precision, reliability, and quality with modern technological innovation.",
-      "p2": "We believe that technology should empower businesses, not complicate them. Our team of experts works tirelessly to deliver solutions that are not only technically excellent but also practical and user-friendly.",
-      "p3": "Today, we serve clients across industries, helping them navigate the digital landscape with confidence and success."
+      "p1": "Habb.ch was founded in Switzerland with the vision of combining traditional Swiss values such as precision, reliability, and quality with modern technological innovation.",
+      "p2": "As brothers with strong academic backgrounds in Computer Science and Business Information Systems, we bring together deep technical expertise and a solid understanding of business processes. Our shared mission is to support Swiss companies in adopting AI automation, digital transformation, and intelligent IT solutions in a practical and sustainable way.",
+      "p3": "We believe that technology should empower businesses and not complicate them. That is why our team works relentlessly to deliver solutions that are not only technically excellent, but also efficient, user-friendly, and tailored to real-world business needs.",
+      "p4": "Today, we serve clients across industries, helping them navigate the digital landscape with confidence and success."
     },
     "values": {
       "title": "Our Values",

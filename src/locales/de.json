@@ -30,15 +30,15 @@
       "subtitle": "Wir verbinden Schweizer Präzision mit modernster Technologie",
       "security": {
         "title": "Enterprise-Sicherheit",
-        "description": "Bankgrade Sicherheitsprotokolle schützen Ihre Daten mit Schweizer Präzision und regulatorischer Konformität."
+        "description": "Enterprise-Sicherheitskonzepte mit Schweizer Datenresidenz: Lokales Hosting, kontrollierte Zugriffe und Sicherheitsmechanismen auf Unternehmensniveau."
       },
       "reliability": {
         "title": "99,9% Verfügbarkeit",
         "description": "Unsere Infrastruktur gewährleistet einen reibungslosen Betrieb mit garantierter Verfügbarkeit und Leistung."
       },
       "support": {
-        "title": "24/7 Experten-Support",
-        "description": "Dedizierte technische Spezialisten stehen rund um die Uhr zur Verfügung."
+        "title": "Kostenlose Beratung",
+        "description": "Wir analysieren Ihre Anforderungen und liefern klare, umsetzbare Empfehlungen, wie Technologie, Automatisierung und KI Ihr Unternehmen effektiv unterstützen können."
       },
       "innovation": {
         "title": "Innovative Lösungen",
@@ -72,8 +72,9 @@
     "story": {
       "title": "Unsere Geschichte",
       "p1": "Habb.ch wurde in der Schweiz gegründet und entstand aus der Vision, traditionelle Schweizer Werte wie Präzision, Zuverlässigkeit und Qualität mit moderner technologischer Innovation zu verbinden.",
-      "p2": "Wir glauben, dass Technologie Unternehmen stärken sollte, nicht komplizieren. Unser Expertenteam arbeitet unermüdlich daran, Lösungen zu liefern, die nicht nur technisch exzellent, sondern auch praktisch und benutzerfreundlich sind.",
-      "p3": "Heute bedienen wir Kunden aus verschiedenen Branchen und helfen ihnen, die digitale Landschaft mit Zuversicht und Erfolg zu navigieren."
+      "p2": "Als Brüder mit einem fundierten Hintergrund in Informatik und Wirtschaftsinformatik vereinen wir technisches Tiefenwissen mit betriebswirtschaftlichem Verständnis. Unser gemeinsames Ziel ist es, Schweizer Unternehmen dabei zu unterstützen, die Potenziale von KI-Automatisierung, digitalen Prozessen und modernen IT-Lösungen sinnvoll und nachhaltig zu nutzen.",
+      "p3": "Wir sind überzeugt, dass Technologie Unternehmen stärken sollte und nicht komplizieren. Deshalb arbeitet unser Expertenteam konsequent daran, Lösungen zu entwickeln, die nicht nur technisch exzellent, sondern auch praxisnah, effizient und benutzerfreundlich sind.",
+      "p4": "Heute bedienen wir Kunden aus verschiedenen Branchen und helfen ihnen, die digitale Landschaft mit Zuversicht und Erfolg zu navigieren."
     },
     "values": {
       "title": "Unsere Werte",
