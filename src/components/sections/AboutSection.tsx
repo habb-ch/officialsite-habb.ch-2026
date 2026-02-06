@@ -9,9 +9,9 @@ export function AboutSection({ locale }: AboutSectionProps) {
   const t = getTranslations(locale)
 
   const stats = [
-    { value: '35+', label: t('home.about.stat1') },
-    { value: '40+', label: t('home.about.stat2') },
-    { value: '4+', label: t('home.about.stat3') },
+    { value: '4+', label: t('home.about.stat1') },
+    { value: '35+', label: t('home.about.stat2') },
+    { value: '40+', label: t('home.about.stat3') },
     { value: '99.9%', label: t('home.about.stat4') },
   ]
 

@@ -93,9 +93,14 @@ export function Footer({ locale }: FooterProps) {
             <h3 className="text-lg font-semibold mb-4">{t('contact.info.title')}</h3>
             <div className="space-y-3 text-sm text-habb-gray-400">
               <p>Habb.ch AG</p>
-              <p>Bahnhofstrasse 1</p>
-              <p>8001 Zürich, {t('contact.office.country')}</p>
+              <p>Sonnheimstrasse 6</p>
+              <p>3415 Ruegsauschachen, {t('contact.office.country')}</p>
               <p className="pt-2">
+                <a href="tel:+41799239772" className="hover:text-swiss-red transition-colors">
+                  +41 79 923 97 72
+                </a>
+              </p>
+              <p>
                 <a href="mailto:info@habb.ch" className="hover:text-swiss-red transition-colors">
                   info@habb.ch
                 </a>
