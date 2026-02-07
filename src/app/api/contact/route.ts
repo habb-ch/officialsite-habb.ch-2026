@@ -34,6 +34,33 @@ export async function POST(request: NextRequest) {
     const created = Array.isArray(data) ? data[0] : data
     console.log('Saved contact submission id=', created?.id)
 
+    // Send email via FormSubmit
+    try {
+      const formData = new FormData()
+      formData.append('name', name)
+      formData.append('email', email)
+      formData.append('company', company || 'Not specified')
+      formData.append('subject', subject)
+      formData.append('message', message)
+      formData.append('_subject', `New Contact Form Submission: ${subject}`)
+      formData.append('_template', 'table')
+      
+      const emailResponse = await fetch('https://formsubmit.co/thuvatheking@gmail.com', {
+        method: 'POST',
+        body: formData,
+      })
+
+      if (!emailResponse.ok) {
+        console.warn('Email sending failed:', emailResponse.status, emailResponse.statusText)
+        // Don't fail the entire request if email fails
+      } else {
+        console.log('Email sent successfully via FormSubmit')
+      }
+    } catch (emailError) {
+      console.error('Email sending error:', emailError)
+      // Don't fail the entire request if email fails
+    }
+
     return NextResponse.json({ success: true, id: created?.id })
   } catch (error) {
     console.error('Contact form error:', error)
