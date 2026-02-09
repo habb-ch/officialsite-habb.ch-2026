@@ -34,27 +34,31 @@ export async function POST(request: NextRequest) {
     const created = Array.isArray(data) ? data[0] : data
     console.log('Saved contact submission id=', created?.id)
 
-    // Send email via FormSubmit
+    // Send email via Formspree
     try {
-      const formData = new FormData()
-      formData.append('name', name)
-      formData.append('email', email)
-      formData.append('company', company || 'Not specified')
-      formData.append('subject', subject)
-      formData.append('message', message)
-      formData.append('_subject', `New Contact Form Submission: ${subject}`)
-      formData.append('_template', 'table')
+      const emailPayload = {
+        name,
+        email,
+        company: company || 'Not specified',
+        subject,
+        message,
+        _replyto: email,
+        _subject: `New Contact Form Submission: ${subject}`,
+      }
       
-      const emailResponse = await fetch('https://formsubmit.co/thuvatheking@gmail.com', {
+      const emailResponse = await fetch('https://formspree.io/f/mwvnpoqb', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailPayload),
       })
-
-      if (!emailResponse.ok) {
-        console.warn('Email sending failed:', emailResponse.status, emailResponse.statusText)
-        // Don't fail the entire request if email fails
+      
+      if (emailResponse.ok) {
+        console.log('Email sent successfully via Formspree')
       } else {
-        console.log('Email sent successfully via FormSubmit')
+        console.warn('Email sending failed:', emailResponse.status, emailResponse.statusText)
       }
     } catch (emailError) {
       console.error('Email sending error:', emailError)
