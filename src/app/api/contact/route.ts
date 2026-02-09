@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     }
     const body = await request.json()
     console.log('API /api/contact received body:', body)
-    const { name, email, company, subject, message } = body
+    const { name, email, phone, company, subject, message } = body
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     // Store in Supabase
     const table = process.env.SUPABASE_CONTACT_TABLE || 'ContactSubmission'
     const { data, error } = await supabase.from(table).insert([
-      { name, email, company, subject, message },
+      { name, email, phone, company, subject, message },
     ]).select()
 
     if (error) {
@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
       const emailPayload = {
         name,
         email,
+        phone: phone || 'Not provided',
         company: company || 'Not specified',
         subject,
         message,

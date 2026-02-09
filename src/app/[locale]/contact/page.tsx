@@ -25,7 +25,7 @@ export default async function ContactPage({ params }: PageProps) {
 
   const formLabels = {
     name: t('contact.form.name'),
-    Phone: t('contact.form.phone'),
+    phone: t('contact.form.phone'),
     email: t('contact.form.email'),
     company: t('contact.form.company'),
     subject: t('contact.form.subject'),
