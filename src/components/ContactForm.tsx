@@ -8,6 +8,7 @@ interface ContactFormProps {
   labels: {
     name: string
     email: string
+    phone: string
     company: string
     subject: string
     message: string
@@ -35,6 +36,7 @@ export function ContactForm({ labels }: ContactFormProps) {
       const payload = {
         name: String(formData.get('name') ?? ''),
         email: String(formData.get('email') ?? ''),
+        phone: String(formData.get('phone') ?? ''),
         company: String(formData.get('company') ?? ''),
         subject: String(formData.get('subject') ?? ''),
         message: String(formData.get('message') ?? ''),
@@ -96,19 +98,56 @@ export function ContactForm({ labels }: ContactFormProps) {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          label={labels.phone}
+          placeholder="+41 76 123 45 67"
+          onKeyDown={(e) => {
+            // Allow: backspace, delete, tab, escape, enter, home, end, left, right
+            if ([8, 9, 27, 13, 46, 36, 35, 37, 39].indexOf(e.keyCode) !== -1 ||
+                // Allow Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+                (e.keyCode === 65 && e.ctrlKey === true) ||
+                (e.keyCode === 67 && e.ctrlKey === true) ||
+                (e.keyCode === 86 && e.ctrlKey === true) ||
+                (e.keyCode === 88 && e.ctrlKey === true)) {
+              return;
+            }
+            // Allow + symbol (key code 187 with shift, or 107 on numpad)
+            if ((e.keyCode === 187 && e.shiftKey) || e.keyCode === 107) {
+              return;
+            }
+            // Allow numbers (key codes 48-57 for top row, 96-105 for numpad)
+            if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+              return;
+            }
+            // Prevent all other keys
+            e.preventDefault();
+          }}
+          onInput={(e) => {
+            // Remove any characters that are not numbers or +
+            const target = e.target as HTMLInputElement;
+            const value = target.value;
+            const sanitized = value.replace(/[^0-9+]/g, '');
+            if (value !== sanitized) {
+              target.value = sanitized;
+            }
+          }}
+        />
+        <Input
           id="company"
           name="company"
           label={labels.company}
           placeholder="Company AG"
         />
-        <Input
-          id="subject"
-          name="subject"
-          label={labels.subject}
-          placeholder="General Inquiry"
-          required
-        />
       </div>
+      <Input
+        id="subject"
+        name="subject"
+        label={labels.subject}
+        placeholder="General Inquiry"
+        required
+      />
       <Textarea
         id="message"
         name="message"

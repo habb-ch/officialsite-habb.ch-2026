@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     }
     const body = await request.json()
     console.log('API /api/contact received body:', body)
-    const { name, email, company, subject, message } = body
+    const { name, email, phone, company, subject, message } = body
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     // Store in Supabase
     const table = process.env.SUPABASE_CONTACT_TABLE || 'ContactSubmission'
     const { data, error } = await supabase.from(table).insert([
-      { name, email, company, subject, message },
+      { name, email, phone, company, subject, message },
     ]).select()
 
     if (error) {
@@ -33,6 +33,38 @@ export async function POST(request: NextRequest) {
 
     const created = Array.isArray(data) ? data[0] : data
     console.log('Saved contact submission id=', created?.id)
+
+    // Send email via Formspree
+    try {
+      const emailPayload = {
+        name,
+        email,
+        phone: phone || 'Not provided',
+        company: company || 'Not specified',
+        subject,
+        message,
+        _replyto: email,
+        _subject: `New Contact Form Submission: ${subject}`,
+      }
+      
+      const emailResponse = await fetch('https://formspree.io/f/mwvnpoqb', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailPayload),
+      })
+      
+      if (emailResponse.ok) {
+        console.log('Email sent successfully via Formspree')
+      } else {
+        console.warn('Email sending failed:', emailResponse.status, emailResponse.statusText)
+      }
+    } catch (emailError) {
+      console.error('Email sending error:', emailError)
+      // Don't fail the entire request if email fails
+    }
 
     return NextResponse.json({ success: true, id: created?.id })
   } catch (error) {
