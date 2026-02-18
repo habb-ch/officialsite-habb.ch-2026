@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Habb.ch | Swiss Excellence in Technology',
+    default: 'Habb.ch | AI automation for Swiss companies',
     template: '%s | Habb.ch',
   },
   description: 'Enterprise-grade technology solutions built with Swiss precision, reliability, and innovation.',
