@@ -1,6 +1,5 @@
 import { redirect } from 'next/navigation'
 import { getSession } from '@/lib/auth'
-import '../../globals.css'
 import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { AdminHeader } from '@/components/admin/AdminHeader'
 
@@ -20,18 +19,16 @@ export default async function AdminDashboardLayout({
   }
 
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-habb-gray-100">
-        <div className="flex">
-          <AdminSidebar />
-          <div className="flex-1 ml-64">
-            <AdminHeader user={{ email: session.email }} />
-            <main className="p-8">
-              {children}
-            </main>
-          </div>
+    <div className="min-h-screen bg-habb-gray-100">
+      <div className="flex">
+        <AdminSidebar />
+        <div className="flex-1 ml-64">
+          <AdminHeader user={{ email: session.email }} />
+          <main className="p-8">
+            {children}
+          </main>
         </div>
-      </body>
-    </html>
+      </div>
+    </div>
   )
 }
