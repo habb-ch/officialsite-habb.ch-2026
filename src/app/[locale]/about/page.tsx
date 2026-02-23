@@ -148,25 +148,50 @@ export default async function AboutPage({ params }: PageProps) {
                 Expertise across engineering, strategy, and delivery — united by Swiss precision.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {teamMembers.map((member) => (
-                <div key={member.id} className="bg-habb-gray-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">
-                  <div className="relative w-full h-72">
-                    <Image
-                      src={member.imageUrl}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
-                    />
+            {teamMembers.length === 2 ? (
+              <div className="flex flex-col md:flex-row justify-center gap-10">
+                {teamMembers.map((member) => (
+                  <div key={member.id} className="bg-habb-gray-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow w-full md:w-96">
+                    <div className="relative w-full h-72">
+                      <Image
+                        src={member.imageUrl}
+                        alt={member.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <p className="text-lg font-semibold text-habb-gray-900">{member.name}</p>
+                      <p className="text-sm text-swiss-red font-medium">{member.position}</p>
+                      {member.degree && (
+                        <p className="text-sm text-habb-gray-700 mt-1">{member.degree}</p>
+                      )}
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <p className="text-lg font-semibold text-habb-gray-900">{member.name}</p>
-                    <p className="text-sm text-swiss-red font-medium">{member.position}</p>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {teamMembers.map((member) => (
+                  <div key={member.id} className="bg-habb-gray-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">
+                    <div className="relative w-full h-72">
+                      <Image
+                        src={member.imageUrl}
+                        alt={member.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <p className="text-lg font-semibold text-habb-gray-900">{member.name}</p>
+                      <p className="text-sm text-swiss-red font-medium">{member.position}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}

@@ -135,6 +135,13 @@
       "description": "Unlock the power of your data with advanced analytics and intelligent insights.",
       "features": ["Data Analytics", "Business Intelligence", "Machine Learning", "Data Governance"]
     },
+    "smartmail": {
+      "sectionTitle": "HABB AI Solutions",
+      "productName": "HABB SmartMail AI",
+      "tagline": "Automatic Email Classification & AI Based Quotation Generation",
+      "overviewTitle": "Product Overview",
+      "overviewText": "HABB SmartMail AI is an intelligent email automation solution for SMEs. The system analyses incoming emails, automatically detects invoices, quotation requests, general inquiries or spam, and processes them in a structured manner.\nComplete quotation requests are transferred directly to your accounting or ERP software and prepared as a draft. If information is missing, the AI automatically requests it via email. Employees only review the generated draft and send the quotation.\nData is stored either in Switzerland or Germany – fully compliant with DSG and GDPR."
+    },
     "cta": {
       "title": "Need a Custom Solution?",
       "description": "Contact our team to discuss your specific requirements.",

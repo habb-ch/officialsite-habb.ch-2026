@@ -135,6 +135,13 @@
       "description": "Erschliessen Sie die Macht Ihrer Daten mit fortschrittlicher Analytik.",
       "features": ["Datenanalyse", "Business Intelligence", "Machine Learning", "Data Governance"]
     },
+    "smartmail": {
+      "sectionTitle": "HABB AI Lösungen",
+      "productName": "HABB SmartMail AI",
+      "tagline": "Automatische E-Mail-Klassifizierung & KI-gestützte Offertenerstellung",
+      "overviewTitle": "Produktübersicht",
+      "overviewText": "HABB SmartMail AI ist eine intelligente E-Mail-Automatisierungslösung für KMU. Das System analysiert eingehende E-Mails, erkennt automatisch Rechnungen, Offertanfragen, allgemeine Anfragen oder Spam und verarbeitet diese strukturiert weiter.\nVollständige Offertanfragen werden direkt in Ihre Buchhaltungs- oder ERP-Software übertragen und als Entwurf vorbereitet. Fehlen Informationen, fordert die KI diese automatisch per E-Mail an. Mitarbeitende prüfen lediglich den generierten Entwurf und versenden die Offerte.\nDie Daten werden wahlweise in der Schweiz oder in Deutschland gespeichert – vollständig DSG- bzw. DSGVO-konform."
+    },
     "cta": {
       "title": "Benötigen Sie eine individuelle Lösung?",
       "description": "Kontaktieren Sie unser Team, um Ihre spezifischen Anforderungen zu besprechen.",

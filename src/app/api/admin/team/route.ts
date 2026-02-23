@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, position, imageUrl, order = 0, visible = true } = body
+    const { name, position, degree, imageUrl, order = 0, visible = true } = body
 
     if (!name || !position || !imageUrl) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     // Insert into Supabase
     const table = process.env.SUPABASE_TEAM_TABLE || 'TeamMember'
     const { data, error } = await supabase.from(table).insert([
-      { name, position, imageUrl, order, visible },
+      { name, position, degree, imageUrl, order, visible },
     ]).select()
 
     if (error) {

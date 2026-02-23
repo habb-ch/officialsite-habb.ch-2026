@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
+import { request } from 'http'
 
 interface RouteParams {
   params: {
@@ -32,11 +33,12 @@ export async function GET(_request: NextRequest, { params }: RouteParams) {
 export async function PATCH(request: NextRequest, { params }: RouteParams) {
   try {
     const body = await request.json()
-    const { name, position, imageUrl, order, visible } = body
+    const { name, position, degree, imageUrl, order, visible } = body
 
     const updates: Record<string, unknown> = {}
     if (name !== undefined) updates.name = name
     if (position !== undefined) updates.position = position
+    if (degree !== undefined) updates.degree = degree
     if (imageUrl !== undefined) updates.imageUrl = imageUrl
     if (order !== undefined) updates.order = Number(order)
     if (visible !== undefined) updates.visible = Boolean(visible)
