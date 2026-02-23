@@ -128,34 +128,6 @@ export default async function ServicesPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-      {/* HABB AI Solutions Section */}
-      <section className="section-padding bg-gradient-to-br from-white to-habb-gray-50">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-sm font-semibold text-swiss-red mb-2">{t('services.smartmail.sectionTitle')}</h3>
-              <h2 className="text-3xl font-bold text-habb-gray-900 mb-4">{t('services.smartmail.productName')}</h2>
-              <p className="text-lg text-habb-gray-600 mb-4">{t('services.smartmail.tagline')}</p>
-              <h4 className="font-semibold mb-2">{t('services.smartmail.overviewTitle')}</h4>
-              {(t('services.smartmail.overviewText') || '').split('\n').map((p, i) => (
-                <p key={i} className="text-habb-gray-700 mb-3">{p}</p>
-              ))}
-              <Link href={`/${locale}/contact`}>
-                <Button>
-                  {t('common.contactUs')}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-            <div>
-              <div className="aspect-video bg-gradient-to-br from-habb-gray-100 to-habb-gray-50 rounded-2xl flex items-center justify-center">
-                <Cloud className="w-24 h-24 text-habb-gray-300" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="section-padding bg-habb-gray-900 text-white">
         <div className="container-wide text-center">

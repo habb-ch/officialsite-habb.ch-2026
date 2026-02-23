@@ -3,6 +3,7 @@
     "home": "Startseite",
     "about": "Über Uns",
     "services": "Dienstleistungen",
+    "smartmail": "SmartMail AI",
     "blog": "Blog",
     "faq": "FAQ",
     "contact": "Kontakt"
@@ -140,7 +141,12 @@
       "productName": "HABB SmartMail AI",
       "tagline": "Automatische E-Mail-Klassifizierung & KI-gestützte Offertenerstellung",
       "overviewTitle": "Produktübersicht",
-      "overviewText": "HABB SmartMail AI ist eine intelligente E-Mail-Automatisierungslösung für KMU. Das System analysiert eingehende E-Mails, erkennt automatisch Rechnungen, Offertanfragen, allgemeine Anfragen oder Spam und verarbeitet diese strukturiert weiter.\nVollständige Offertanfragen werden direkt in Ihre Buchhaltungs- oder ERP-Software übertragen und als Entwurf vorbereitet. Fehlen Informationen, fordert die KI diese automatisch per E-Mail an. Mitarbeitende prüfen lediglich den generierten Entwurf und versenden die Offerte.\nDie Daten werden wahlweise in der Schweiz oder in Deutschland gespeichert – vollständig DSG- bzw. DSGVO-konform."
+      "overviewText": "HABB SmartMail AI ist eine intelligente E-Mail-Automatisierungslösung für KMU. Das System analysiert eingehende E-Mails, erkennt automatisch Rechnungen, Offertanfragen, allgemeine Anfragen oder Spam und verarbeitet diese strukturiert weiter.\nVollständige Offertanfragen werden direkt in Ihre Buchhaltungs- oder ERP-Software übertragen und als Entwurf vorbereitet. Fehlen Informationen, fordert die KI diese automatisch per E-Mail an. Mitarbeitende prüfen lediglich den generierten Entwurf und versenden die Offerte.\nDie Daten werden wahlweise in der Schweiz oder in Deutschland gespeichert – vollständig DSG- bzw. DSGVO-konform.",
+      "keyFeaturesTitle": "Hauptfunktionen",
+      "keyFeatures": "[{\"icon\":\"Mail\",\"title\":\"Automatische E-Mail-Klassifizierung\",\"description\":\"KI erkennt Rechnungen, Offertanfragen, allgemeine Anfragen und Spam zuverlässig und automatisch.\"},{\"icon\":\"FileText\",\"title\":\"KI-gestützte Offertenerstellung\",\"description\":\"Vollständige Offertanfragen werden als fertige Entwürfe in Ihrer Buchhaltungs- oder ERP-Software bereitgestellt.\"},{\"icon\":\"Zap\",\"title\":\"Automatische Rückfragen\",\"description\":\"Fehlen Angaben, fordert das System diese automatisch per E-Mail beim Absender an.\"},{\"icon\":\"Database\",\"title\":\"ERP- & Buchhaltungsintegration\",\"description\":\"Nahtlose Anbindung an gängige ERP- und Buchhaltungssysteme ohne manuellen Aufwand.\"},{\"icon\":\"ShieldCheck\",\"title\":\"DSG- & DSGVO-konform\",\"description\":\"Datenspeicherung wahlweise in der Schweiz oder Deutschland – vollständig rechtskonform.\"}]",
+      "backToServices": "Zurück zu den Dienstleistungen",
+      "ctaTitle": "Bereit für smarte E-Mail-Automatisierung?",
+      "ctaDescription": "Kontaktieren Sie uns noch heute für eine persönliche Demo von HABB SmartMail AI."
     },
     "cta": {
       "title": "Benötigen Sie eine individuelle Lösung?",
