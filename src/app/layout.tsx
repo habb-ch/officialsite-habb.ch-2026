@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     alternateLocale: 'de_CH',
     siteName: 'Habb.ch',
   },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+    shortcut: '/logo.png',
+  },
   twitter: {
     card: 'summary_large_image',
   },

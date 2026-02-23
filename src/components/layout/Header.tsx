@@ -23,6 +23,7 @@ export function Header({ locale }: HeaderProps) {
     { href: `/${locale}`, label: t('nav.home') },
     { href: `/${locale}/about`, label: t('nav.about') },
     { href: `/${locale}/services`, label: t('nav.services') },
+    { href: `/${locale}/services/smartmail`, label: t('nav.smartmail') },
     { href: `/${locale}/blog`, label: t('nav.blog') },
     { href: `/${locale}/faq`, label: t('nav.faq') },
     { href: `/${locale}/contact`, label: t('nav.contact') },

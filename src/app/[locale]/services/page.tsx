@@ -128,7 +128,6 @@ export default async function ServicesPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="section-padding bg-habb-gray-900 text-white">
         <div className="container-wide text-center">

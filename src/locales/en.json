@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "About Us",
     "services": "Services",
+    "smartmail": "SmartMail AI",
     "blog": "Blog",
     "faq": "FAQ",
     "contact": "Contact"
@@ -14,7 +15,7 @@
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
-    "adminLogin": "Admin Login",
+    "adminLogin": "Admin Console",
     "copyright": "© {year} Habb.ch. All rights reserved.",
     "swiss": "Made with precision in Switzerland"
   },
@@ -134,6 +135,18 @@
       "title": "Data Solutions",
       "description": "Unlock the power of your data with advanced analytics and intelligent insights.",
       "features": ["Data Analytics", "Business Intelligence", "Machine Learning", "Data Governance"]
+    },
+    "smartmail": {
+      "sectionTitle": "HABB AI Solutions",
+      "productName": "HABB SmartMail AI",
+      "tagline": "Automatic Email Classification & AI Based Quotation Generation",
+      "overviewTitle": "Product Overview",
+      "overviewText": "HABB SmartMail AI is an intelligent email automation solution for SMEs. The system analyses incoming emails, automatically detects invoices, quotation requests, general inquiries or spam, and processes them in a structured manner.\nComplete quotation requests are transferred directly to your accounting or ERP software and prepared as a draft. If information is missing, the AI automatically requests it via email. Employees only review the generated draft and send the quotation.\nData is stored either in Switzerland or Germany – fully compliant with DSG and GDPR.",
+      "keyFeaturesTitle": "Key Features",
+      "keyFeatures": "[{\"icon\":\"Mail\",\"title\":\"Automatic Email Classification\",\"description\":\"AI reliably detects invoices, quotation requests, general inquiries, and spam automatically.\"},{\"icon\":\"FileText\",\"title\":\"AI-Powered Quotation Generation\",\"description\":\"Complete quotation requests are prepared as ready-to-send drafts in your accounting or ERP software.\"},{\"icon\":\"Zap\",\"title\":\"Automatic Follow-Up Requests\",\"description\":\"If details are missing, the system automatically requests them from the sender via email.\"},{\"icon\":\"Database\",\"title\":\"ERP & Accounting Integration\",\"description\":\"Seamless connection to common ERP and accounting systems without manual effort.\"},{\"icon\":\"ShieldCheck\",\"title\":\"DSG & GDPR Compliant\",\"description\":\"Data stored in Switzerland or Germany – fully legally compliant.\"}]",
+      "backToServices": "Back to Services",
+      "ctaTitle": "Ready for Smart Email Automation?",
+      "ctaDescription": "Contact us today for a personal demo of HABB SmartMail AI."
     },
     "cta": {
       "title": "Need a Custom Solution?",

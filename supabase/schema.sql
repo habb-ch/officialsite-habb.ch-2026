@@ -90,6 +90,7 @@ CREATE TABLE IF NOT EXISTS public."TeamMember" (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   name text NOT NULL,
   position text NOT NULL,
+  degree text,
   "imageUrl" text NOT NULL,
   "order" integer NOT NULL DEFAULT 0,
   visible boolean NOT NULL DEFAULT true,

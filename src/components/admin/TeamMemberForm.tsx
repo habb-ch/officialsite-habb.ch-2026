@@ -11,6 +11,7 @@ interface TeamMemberFormProps {
     id: string
     name: string
     position: string
+    degree?: string
     imageUrl: string
     order: number
     visible: boolean
@@ -21,6 +22,7 @@ export function TeamMemberForm({ mode, member }: TeamMemberFormProps) {
   const router = useRouter()
   const [name, setName] = useState(member?.name ?? '')
   const [position, setPosition] = useState(member?.position ?? '')
+  const [degree, setDegree] = useState(member?.degree ?? '')
   const [order, setOrder] = useState<number>(member?.order ?? 0)
   const [visible, setVisible] = useState<boolean>(member?.visible ?? true)
   const [file, setFile] = useState<File | null>(null)
@@ -74,6 +76,7 @@ export function TeamMemberForm({ mode, member }: TeamMemberFormProps) {
       const payload = {
         name,
         position,
+        degree,
         imageUrl,
         order: Number(order) || 0,
         visible,
@@ -110,6 +113,7 @@ export function TeamMemberForm({ mode, member }: TeamMemberFormProps) {
   useEffect(() => {
     setName(member?.name ?? '')
     setPosition(member?.position ?? '')
+    setDegree(member?.degree ?? '')
     setOrder(member?.order ?? 0)
     setVisible(member?.visible ?? true)
     setPreview(member?.imageUrl ?? null)
@@ -132,6 +136,12 @@ export function TeamMemberForm({ mode, member }: TeamMemberFormProps) {
           value={position}
           onChange={(e) => setPosition(e.target.value)}
           required
+        />
+        <Input
+          label="Degree (optional)"
+          name="degree"
+          value={degree}
+          onChange={(e) => setDegree(e.target.value)}
         />
         <div>
           <label className="block text-sm font-medium text-habb-gray-700 mb-1">Display Order</label>
