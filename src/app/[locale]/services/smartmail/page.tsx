@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
@@ -54,29 +55,41 @@ export default async function SmartMailPage({ params }: PageProps) {
       {/* Hero / Header Section */}
       <section className="section-padding bg-gradient-to-br from-habb-gray-50 via-white to-habb-gray-50">
         <div className="container-wide">
-          <div className="max-w-3xl">
-            <span className="inline-block text-sm font-semibold text-swiss-red uppercase tracking-widest mb-4">
-              {t('services.smartmail.sectionTitle')}
-            </span>
-            <h1 className="text-habb-gray-900 mb-4">{t('services.smartmail.productName')}</h1>
-            <p className="text-xl font-medium text-swiss-red mb-6">
-              {t('services.smartmail.tagline')}
-            </p>
-            <p className="text-lg text-habb-gray-600 mb-8">
-              {overviewParagraphs[0]}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href={`/${locale}/contact`}>
-                <Button size="lg">
-                  {t('common.contactUs')}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href={`/${locale}/services`}>
-                <Button size="lg" variant="outline">
-                  {t('services.smartmail.backToServices')}
-                </Button>
-              </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block text-sm font-semibold text-swiss-red uppercase tracking-widest mb-4">
+                {t('services.smartmail.sectionTitle')}
+              </span>
+              <h1 className="text-habb-gray-900 mb-4">{t('services.smartmail.productName')}</h1>
+              <p className="text-xl font-medium text-swiss-red mb-6">
+                {t('services.smartmail.tagline')}
+              </p>
+              <p className="text-lg text-habb-gray-600 mb-8">
+                {overviewParagraphs[0]}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href={`/${locale}/contact`}>
+                  <Button size="lg">
+                    {t('common.contactUs')}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href={`/${locale}/services`}>
+                  <Button size="lg" variant="outline">
+                    {t('services.smartmail.backToServices')}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/habb-smartmail.png"
+                alt={t('services.smartmail.productName')}
+                width={700}
+                height={500}
+                className="w-full h-auto object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
