@@ -3,13 +3,13 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Habb.ch | AI automation for Swiss companies',
-    template: '%s | Habb.ch',
+    default: 'Habb Switzerland | AI automation for Swiss companies',
+    template: '%s | Habb Switzerland',
   },
   description: 'Enterprise-grade technology solutions built with Swiss precision, reliability, and innovation.',
   keywords: ['Swiss technology', 'cloud services', 'enterprise solutions', 'cybersecurity', 'consulting'],
-  authors: [{ name: 'Habb.ch' }],
-  creator: 'Habb.ch',
+  authors: [{ name: 'Habb Switzerland' }],
+  creator: 'Habb Switzerland',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   openGraph: {
     type: 'website',

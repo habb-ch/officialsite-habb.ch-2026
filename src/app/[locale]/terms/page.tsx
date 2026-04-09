@@ -84,7 +84,7 @@ export default async function TermsPage({ params }: PageProps) {
                 {locale === 'de' ? 'Rechtliche Fragen' : 'Legal Inquiries'}
               </h3>
               <div className="text-habb-gray-600 space-y-2">
-                <p>Habb.ch</p>
+                <p>Habb Switzerland</p>
                 <p>Sonnheimstrasse 6</p>
                 <p>3415 Rüegsauschachen, {locale === 'de' ? 'Schweiz' : 'Switzerland'}</p>
                 <p className="mt-4">
