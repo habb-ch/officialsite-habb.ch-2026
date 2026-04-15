@@ -3,6 +3,8 @@ import { getSession } from '@/lib/auth'
 import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { AdminHeader } from '@/components/admin/AdminHeader'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Admin Dashboard | Habb.ch',
 }
