@@ -40,7 +40,7 @@ export function Footer({ locale }: FooterProps) {
                   height={24}
                   className="h-8 w-auto"
                 />
-                <span className="text-lg font-semibold text-white">Habb<span className="text-swiss-red">{locale === 'de' ? ' Schweiz' : ' Switzerland'}</span></span>
+                <span className="text-lg font-semibold text-white">Habb<span className="text-swiss-red">{locale === 'de' ? ' Schweiz' : ' Swisserland'}</span></span>
               </Link>
             </div>
             <p className="text-habb-gray-400 text-sm leading-relaxed mb-6">

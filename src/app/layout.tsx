@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: ['Habb', 'Habb Switzerland', 'Habb Schweiz', 'habb.ch', 'Swiss technology', 'cloud services', 'enterprise AI solutions', 'cybersecurity', 'automation Switzerland', 'Zürich software company'],
   authors: [{ name: 'Habb Switzerland' }],
   creator: 'Habb Switzerland',
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : new URL('https://habb.ch'),
+  metadataBase: process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : new URL('https://www.habb.ch'),
   openGraph: {
     type: 'website',
     locale: 'en_CH',

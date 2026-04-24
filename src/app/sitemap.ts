@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://habb.ch'
-  
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.habb.ch').replace(/\/$/, '')
+  const now = new Date()
+
   const routes = [
     '',
     '/about',
@@ -16,18 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const locales = ['en', 'de']
 
-  const sitemapEntries = routes.flatMap((route) => 
+  const sitemapEntries: MetadataRoute.Sitemap = routes.flatMap((route) =>
     locales.map((locale) => ({
       url: `${baseUrl}/${locale}${route}`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: route === '' ? 1 : 0.8,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en${route}`,
-          de: `${baseUrl}/de${route}`,
-        },
-      }
     }))
   )
 
