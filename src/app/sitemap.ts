@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
+import { getSiteUrl } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.habb.ch').replace(/\/$/, '')
+  const baseUrl = getSiteUrl()
   const now = new Date()
 
   const routes = [

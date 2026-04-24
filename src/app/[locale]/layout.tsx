@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
 import { Header, Footer } from '@/components/layout'
 import { Locale, isValidLocale } from '@/lib/i18n'
+import { getSiteUrl } from '@/lib/site'
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://habb.ch'
+  const baseUrl = getSiteUrl()
   const isGerman = locale === 'de'
   
   const siteTitle = isGerman ? 'Habb Schweiz | Fuehrende KI & Tech Loesungen' : 'Habb Switzerland | Leading AI & Tech Solutions'

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
+import { getSiteUrl } from '@/lib/site'
 import { 
   HeroSection, 
   FeaturesSection, 
@@ -14,7 +15,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://habb.ch'
+  const baseUrl = getSiteUrl()
   const isGerman = locale === 'de'
   const title = isGerman
     ? 'Habb Schweiz | KI Automation und Tech Loesungen in der Schweiz'
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function HomePage({ params }: PageProps) {
   const { locale: localeParam } = await params
   const locale = localeParam as Locale
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://habb.ch'
+  const baseUrl = getSiteUrl()
   const isGerman = locale === 'de'
   const organizationJsonLd = {
     '@context': 'https://schema.org',
