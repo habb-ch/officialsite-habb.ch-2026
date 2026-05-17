@@ -3,6 +3,7 @@
     "home": "Startseite",
     "about": "Über Uns",
     "services": "Dienstleistungen",
+    "habbOne": "HABB One",
     "smartmail": "HABB AI Lösungen",
     "blog": "Blog",
     "faq": "FAQ",
@@ -149,6 +150,7 @@
       "ctaDescription": "Kontaktieren Sie uns noch heute für eine persönliche Demo von HABB AI Lösungen."
     },
     "habbOne": {
+      "badge": "Neues Produkt",
       "sectionTitle": "HABB One",
       "productName": "HABB One – ERP für Schweizer KMU-Werkstätten",
       "tagline": "Modulares, zweisprachiges ERP – Multi-Tenant, ab Tag 1 produktiv",

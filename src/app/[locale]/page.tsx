@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 import { getSiteUrl } from '@/lib/site'
-import { 
-  HeroSection, 
-  FeaturesSection, 
-  AboutSection, 
-  ServicesSection, 
-  CTASection 
+import {
+  HeroSection,
+  NewProductSection,
+  FeaturesSection,
+  AboutSection,
+  ServicesSection,
+  CTASection
 } from '@/components/sections'
 
 interface PageProps {
@@ -80,6 +81,7 @@ export default async function HomePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
       />
       <HeroSection locale={locale} />
+      <NewProductSection locale={locale} />
       <FeaturesSection locale={locale} />
       <AboutSection locale={locale} />
       <ServicesSection locale={locale} />
