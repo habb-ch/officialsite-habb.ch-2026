@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
+import { softwareApplicationLd, breadcrumbLd } from '@/lib/structured-data'
+import { JsonLd } from '@/components/JsonLd'
 import { Button } from '@/components/ui'
 import {
   ArrowRight,
@@ -22,10 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params
   const t = getTranslations(locale as Locale)
 
-  return {
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/services/habb-one',
     title: t('services.habbOne.productName'),
     description: t('services.habbOne.tagline'),
-  }
+  })
 }
 
 export default async function HabbOnePage({ params }: PageProps) {
@@ -52,6 +57,21 @@ export default async function HabbOnePage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          softwareApplicationLd({
+            locale,
+            name: t('services.habbOne.productName'),
+            description: t('services.habbOne.tagline'),
+            path: '/services/habb-one',
+          }),
+          breadcrumbLd(locale, [
+            { name: t('nav.home'), path: '' },
+            { name: t('nav.services'), path: '/services' },
+            { name: t('services.habbOne.sectionTitle'), path: '/services/habb-one' },
+          ]),
+        ]}
+      />
       {/* Hero / Header Section */}
       <section className="section-padding bg-gradient-to-br from-habb-gray-50 via-white to-habb-gray-50">
         <div className="container-wide">

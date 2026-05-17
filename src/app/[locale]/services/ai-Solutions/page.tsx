@@ -3,6 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
+import { softwareApplicationLd, breadcrumbLd } from '@/lib/structured-data'
+import { JsonLd } from '@/components/JsonLd'
 import { Button } from '@/components/ui'
 import {
   ArrowRight,
@@ -22,10 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params
   const t = getTranslations(locale as Locale)
 
-  return {
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/services/ai-solutions',
     title: t('services.smartmail.productName'),
     description: t('services.smartmail.tagline'),
-  }
+  })
 }
 
 export default async function SmartMailPage({ params }: PageProps) {
@@ -52,6 +57,21 @@ export default async function SmartMailPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          softwareApplicationLd({
+            locale,
+            name: t('services.smartmail.productName'),
+            description: t('services.smartmail.tagline'),
+            path: '/services/ai-solutions',
+          }),
+          breadcrumbLd(locale, [
+            { name: t('nav.home'), path: '' },
+            { name: t('nav.services'), path: '/services' },
+            { name: t('services.smartmail.sectionTitle'), path: '/services/ai-solutions' },
+          ]),
+        ]}
+      />
       {/* Hero / Header Section */}
       <section className="section-padding bg-gradient-to-br from-habb-gray-50 via-white to-habb-gray-50">
         <div className="container-wide">

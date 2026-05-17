@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
 import { CTASection } from '@/components/sections'
 import { Target, Heart, Lightbulb, Shield } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
@@ -17,11 +18,13 @@ export const dynamic = 'force-dynamic'
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)
-  
-  return {
+
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/about',
     title: t('about.hero.title'),
     description: t('about.hero.subtitle'),
-  }
+  })
 }
 
 export default async function AboutPage({ params }: PageProps) {

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
 
 interface PageProps {
   params: Promise<{ locale: string }>
@@ -9,10 +10,16 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)
-  
-  return {
+
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/terms',
     title: t('terms.title'),
-  }
+    description:
+      locale === 'de'
+        ? 'Allgemeine Geschäftsbedingungen von Habb Schweiz für die Nutzung unserer Dienstleistungen.'
+        : 'Terms and conditions of Habb Switzerland for the use of our services.',
+  })
 }
 
 export default async function TermsPage({ params }: PageProps) {

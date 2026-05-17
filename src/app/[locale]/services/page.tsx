@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
 import { Button } from '@/components/ui'
 import { Cloud, Users, Code, Shield, Settings, Database, Check, ArrowRight } from 'lucide-react'
 
@@ -12,11 +13,13 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)
-  
-  return {
+
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/services',
     title: t('services.hero.title'),
     description: t('services.hero.subtitle'),
-  }
+  })
 }
 
 export default async function ServicesPage({ params }: PageProps) {

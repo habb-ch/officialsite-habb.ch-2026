@@ -3,6 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
+import { articleLd, breadcrumbLd } from '@/lib/structured-data'
+import { JsonLd } from '@/components/JsonLd'
 import { supabase } from '@/lib/supabase'
 import { formatDate, getLocalizedContent } from '@/lib/utils'
 import { Button } from '@/components/ui'
@@ -46,21 +49,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPost(slug)
   
   if (!post) {
-    return { title: 'Post Not Found' }
+    return { title: 'Post Not Found', robots: { index: false, follow: true } }
   }
 
   const title = getLocalizedContent(post.metaTitleEn || post.titleEn, post.metaTitleDe || post.titleDe, locale)
   const description = getLocalizedContent(post.metaDescEn || post.excerptEn, post.metaDescDe || post.excerptDe, locale)
 
-  return {
+  const meta = buildPageMetadata({
+    locale: locale as Locale,
+    path: `/blog/${slug}`,
     title,
-    description: description || undefined,
-    openGraph: {
-      title,
-      description: description || undefined,
-      images: post.imageUrl ? [post.imageUrl] : undefined,
-    },
+    description: description || title,
+    ogType: 'article',
+  })
+
+  if (post.imageUrl) {
+    meta.openGraph = { ...meta.openGraph, images: [post.imageUrl] }
+    meta.twitter = { ...meta.twitter, images: [post.imageUrl] }
   }
+
+  return meta
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
@@ -75,9 +83,28 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const title = getLocalizedContent(post.titleEn, post.titleDe, locale)
   const content = getLocalizedContent(post.contentEn, post.contentDe, locale)
+  const description = getLocalizedContent(post.excerptEn, post.excerptDe, locale)
 
   return (
     <>
+      <JsonLd
+        data={[
+          articleLd({
+            locale,
+            title,
+            description: description || title,
+            path: `/blog/${post.slug}`,
+            datePublished: post.createdAt,
+            dateModified: post.updatedAt || post.createdAt,
+            image: post.imageUrl || undefined,
+          }),
+          breadcrumbLd(locale, [
+            { name: t('nav.home'), path: '' },
+            { name: t('nav.blog'), path: '/blog' },
+            { name: title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       {/* Back Link */}
       <div className="bg-habb-gray-50 border-b border-habb-gray-100">
         <div className="container-wide py-4">

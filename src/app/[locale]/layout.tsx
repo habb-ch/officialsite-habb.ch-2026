@@ -9,10 +9,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const baseUrl = getSiteUrl()
   const isGerman = locale === 'de'
   
-  const siteTitle = isGerman ? 'Habb Schweiz | Fuehrende KI & Tech Loesungen' : 'Habb Switzerland | Leading AI & Tech Solutions'
+  const siteTitle = isGerman
+    ? 'Habb Schweiz | Führende KI- & Tech-Lösungen aus der Schweiz'
+    : 'Habb Switzerland | Leading AI & Tech Solutions'
   const description = isGerman
-    ? 'Habb Schweiz bietet erstklassige Technologie- und KI-Lösungen, die mit Schweizer Präzision und Innovation entwickelt wurden.' 
-    : 'Habb Switzerland provides enterprise-grade technology and AI solutions built with Swiss precision and innovation.'
+    ? 'Habb Schweiz bietet erstklassige Technologie- und KI-Lösungen, entwickelt mit Schweizer Präzision und Innovation. Automatisierung, Software & ERP für Schweizer KMU.'
+    : 'Habb Switzerland provides enterprise-grade technology and AI solutions built with Swiss precision and innovation. Automation, software & ERP for Swiss SMEs.'
 
   return {
     title: {
@@ -23,8 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: {
       canonical: `${baseUrl}/${locale}`,
       languages: {
-        'en-CH': `${baseUrl}/en`,
         'de-CH': `${baseUrl}/de`,
+        'en-CH': `${baseUrl}/en`,
+        'x-default': `${baseUrl}/de`,
       },
     },
     openGraph: {
@@ -35,6 +38,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       alternateLocale: isGerman ? 'en_CH' : 'de_CH',
       siteName: isGerman ? 'Habb Schweiz' : 'Habb Switzerland',
       type: 'website',
+      images: [{ url: '/logo.png', width: 1200, height: 630, alt: isGerman ? 'Habb Schweiz' : 'Habb Switzerland' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteTitle,
+      description,
+      images: ['/logo.png'],
     },
   }
 }

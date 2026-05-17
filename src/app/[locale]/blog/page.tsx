@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
 import { supabase } from '@/lib/supabase'
 import { formatDate, getLocalizedContent, truncate } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui'
@@ -18,11 +19,13 @@ export const dynamic = 'force-dynamic'
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)
-  
-  return {
+
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/blog',
     title: t('blog.title'),
     description: t('blog.subtitle'),
-  }
+  })
 }
 
 async function getPosts() {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import { getSiteUrl } from '@/lib/site'
 import './globals.css'
 
@@ -34,15 +35,19 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  manifest: '/manifest.webmanifest',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const pathname = (await headers()).get('x-pathname') || ''
+  const lang = pathname.startsWith('/en') ? 'en-CH' : 'de-CH'
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className="min-h-screen flex flex-col">{children}</body>
     </html>
   )

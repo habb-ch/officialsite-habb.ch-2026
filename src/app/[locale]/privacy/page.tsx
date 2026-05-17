@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
 
 interface PageProps {
   params: Promise<{ locale: string }>
@@ -9,10 +10,16 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)
-  
-  return {
+
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/privacy',
     title: t('privacy.title'),
-  }
+    description:
+      locale === 'de'
+        ? 'Datenschutzerklärung von Habb Schweiz – wie wir personenbezogene Daten erheben, nutzen und schützen.'
+        : 'Privacy policy of Habb Switzerland – how we collect, use and protect personal data.',
+  })
 }
 
 export default async function PrivacyPage({ params }: PageProps) {

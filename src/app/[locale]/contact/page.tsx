@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
+import { organizationLd, breadcrumbLd } from '@/lib/structured-data'
+import { JsonLd } from '@/components/JsonLd'
 import { ContactForm } from '@/components/ContactForm'
 import { MapPin, Mail, Phone, Clock } from 'lucide-react'
 
@@ -11,11 +14,13 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)
-  
-  return {
+
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/contact',
     title: t('contact.title'),
     description: t('contact.subtitle'),
-  }
+  })
 }
 
 export default async function ContactPage({ params }: PageProps) {
@@ -53,7 +58,7 @@ export default async function ContactPage({ params }: PageProps) {
       icon: Phone,
       label: t('contact.info.phone'),
       value: '+41 79 923 97 72',
-      href: 'tel:+41440000000',
+      href: 'tel:+41799239772',
     },
     {
       icon: Clock,
@@ -64,6 +69,15 @@ export default async function ContactPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          organizationLd(locale),
+          breadcrumbLd(locale, [
+            { name: t('nav.home'), path: '' },
+            { name: t('contact.title'), path: '/contact' },
+          ]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-habb-gray-50 via-white to-habb-gray-50">
         <div className="container-wide">

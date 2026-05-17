@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
+import { buildPageMetadata } from '@/lib/seo'
+import { faqPageLd, breadcrumbLd } from '@/lib/structured-data'
+import { JsonLd } from '@/components/JsonLd'
 import { supabase } from '@/lib/supabase'
 import { getLocalizedContent } from '@/lib/utils'
 import { Button } from '@/components/ui'
@@ -15,11 +18,13 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params
   const t = getTranslations(locale as Locale)
-  
-  return {
+
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/faq',
     title: t('faq.title'),
     description: t('faq.subtitle'),
-  }
+  })
 }
 
 async function getFAQs() {
@@ -49,8 +54,23 @@ export default async function FAQPage({ params }: PageProps) {
     answer: getLocalizedContent(faq.answerEn, faq.answerDe, locale),
   }))
 
+  const jsonLd: object[] = [
+    breadcrumbLd(locale, [
+      { name: t('nav.home'), path: '' },
+      { name: t('faq.title'), path: '/faq' },
+    ]),
+  ]
+  if (localizedFaqs.length > 0) {
+    jsonLd.push(
+      faqPageLd(
+        localizedFaqs.map((f) => ({ question: f.question, answer: f.answer }))
+      )
+    )
+  }
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-habb-gray-50 via-white to-habb-gray-50">
         <div className="container-wide">
