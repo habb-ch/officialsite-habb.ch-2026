@@ -57,6 +57,36 @@ export function webSiteLd(locale: Locale) {
   }
 }
 
+export function aboutPageLd(locale: Locale) {
+  const baseUrl = getSiteUrl()
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': `${baseUrl}/${locale}/about#aboutpage`,
+    url: `${baseUrl}/${locale}/about`,
+    name: locale === 'de' ? 'Über Habb Switzerland' : 'About Habb Switzerland',
+    inLanguage: locale === 'de' ? 'de-CH' : 'en-CH',
+    about: { '@id': `${baseUrl}/#organization` },
+    isPartOf: { '@id': `${baseUrl}/#website` },
+  }
+}
+
+export function personLd(args: {
+  name: string
+  jobTitle?: string
+  image?: string
+}) {
+  const baseUrl = getSiteUrl()
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: args.name,
+    ...(args.jobTitle ? { jobTitle: args.jobTitle } : {}),
+    ...(args.image ? { image: args.image } : {}),
+    worksFor: { '@id': `${baseUrl}/#organization` },
+  }
+}
+
 interface Crumb {
   name: string
   path: string

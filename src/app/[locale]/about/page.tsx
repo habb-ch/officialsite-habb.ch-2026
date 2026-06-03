@@ -1,10 +1,13 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Locale } from '@/lib/i18n'
 import { getTranslations } from '@/lib/translations'
 import { buildPageMetadata } from '@/lib/seo'
+import { organizationLd, aboutPageLd, breadcrumbLd, personLd } from '@/lib/structured-data'
+import { JsonLd } from '@/components/JsonLd'
 import { CTASection } from '@/components/sections'
-import { Target, Heart, Lightbulb, Shield } from 'lucide-react'
+import { Target, Heart, Lightbulb, Shield, ArrowRight } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
 interface PageProps {
@@ -19,12 +22,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params
   const t = getTranslations(locale as Locale)
 
-  return buildPageMetadata({
+  const meta = buildPageMetadata({
     locale: locale as Locale,
     path: '/about',
-    title: t('about.hero.title'),
-    description: t('about.hero.subtitle'),
+    title: t('about.metaTitle'),
+    description: t('about.metaDescription'),
   })
+
+  meta.title = { absolute: t('about.metaTitle') }
+  meta.keywords =
+    locale === 'de'
+      ? [
+          'Habb Switzerland',
+          'IT-Unternehmen Schweiz',
+          'Softwareentwicklung Schweiz',
+          'KI-Automatisierung Schweiz',
+          'ERP für KMU',
+          'IT-Partner KMU Schweiz',
+        ]
+      : [
+          'Habb Switzerland',
+          'IT company Switzerland',
+          'software development Switzerland',
+          'AI automation Switzerland',
+          'ERP for SMEs',
+        ]
+
+  return meta
 }
 
 export default async function AboutPage({ params }: PageProps) {
@@ -43,6 +67,24 @@ export default async function AboutPage({ params }: PageProps) {
   }
 
   const teamMembers = Array.isArray(teamMembersData) ? teamMembersData : []
+
+  const offerings = [
+    {
+      title: t('nav.habbOne'),
+      description: t('services.habbOne.teaserText'),
+      href: `/${locale}/services/habb-one`,
+    },
+    {
+      title: t('nav.smartmail'),
+      description: t('services.smartmail.tagline'),
+      href: `/${locale}/services/ai-solutions`,
+    },
+    {
+      title: t('nav.services'),
+      description: t('services.hero.subtitle'),
+      href: `/${locale}/services`,
+    },
+  ]
 
   const values = [
     {
@@ -69,6 +111,19 @@ export default async function AboutPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          organizationLd(locale),
+          aboutPageLd(locale),
+          breadcrumbLd(locale, [
+            { name: t('nav.home'), path: '' },
+            { name: t('nav.about'), path: '/about' },
+          ]),
+          ...teamMembers.map((m) =>
+            personLd({ name: m.name, jobTitle: m.position, image: m.imageUrl })
+          ),
+        ]}
+      />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-habb-gray-50 via-white to-habb-gray-50">
         <div className="container-wide">
@@ -89,6 +144,7 @@ export default async function AboutPage({ params }: PageProps) {
                 <p>{t('about.story.p1')}</p>
                 <p>{t('about.story.p2')}</p>
                 <p>{t('about.story.p3')}</p>
+                <p>{t('about.story.p4')}</p>
               </div>
             </div>
             <div className="relative">
@@ -148,7 +204,7 @@ export default async function AboutPage({ params }: PageProps) {
                 {t('about.team.subtitle')}
               </h2>
               <p className="text-habb-gray-600 max-w-2xl mx-auto">
-                Expertise across engineering, strategy, and delivery — united by Swiss precision.
+                {t('about.team.intro')}
               </p>
             </div>
             {teamMembers.length === 2 ? (
@@ -198,6 +254,38 @@ export default async function AboutPage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      {/* Offerings / internal links */}
+      <section className="section-padding bg-habb-gray-50">
+        <div className="container-wide">
+          <div className="max-w-3xl mb-12">
+            <h2 className="text-habb-gray-900 mb-4">{t('about.offerings.title')}</h2>
+            <p className="text-lg text-habb-gray-600 leading-relaxed">
+              {t('about.offerings.intro')}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {offerings.map((offering, index) => (
+              <Link
+                key={index}
+                href={offering.href}
+                className="group bg-white rounded-2xl p-8 border border-habb-gray-200 hover:border-swiss-red/30 hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-xl font-semibold text-habb-gray-900 mb-3 group-hover:text-swiss-red transition-colors">
+                  {offering.title}
+                </h3>
+                <p className="text-habb-gray-600 leading-relaxed mb-4">
+                  {offering.description}
+                </p>
+                <span className="inline-flex items-center text-swiss-red font-medium text-sm">
+                  {t('about.offerings.linkLabel')}
+                  <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <CTASection locale={locale} />
     </>

@@ -67,9 +67,16 @@
     }
   },
   "about": {
+    "metaTitle": "About Habb Switzerland – IT, Software & AI for Swiss SMEs",
+    "metaDescription": "Habb Switzerland builds AI automation, software and ERP solutions for Swiss SMEs. Get to know our story, our team and our values.",
     "hero": {
       "title": "About Habb Switzerland",
       "subtitle": "Swiss precision meets technological excellence"
+    },
+    "offerings": {
+      "title": "Our solutions for Swiss SMEs",
+      "intro": "From intelligent ERP software to AI-powered email automation – discover how we support your business.",
+      "linkLabel": "Learn more"
     },
     "story": {
       "title": "Our Story",
@@ -99,7 +106,8 @@
     },
     "team": {
       "title": "Leadership Team",
-      "subtitle": "Meet the experts driving our success"
+      "subtitle": "Meet the experts driving our success",
+      "intro": "Expertise across engineering, strategy, and delivery — united by Swiss precision."
     }
   },
   "services": {

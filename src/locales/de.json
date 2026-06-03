@@ -67,9 +67,16 @@
     }
   },
   "about": {
+    "metaTitle": "Über Habb Switzerland – IT, Software & KI für Schweizer KMU",
+    "metaDescription": "Habb Switzerland entwickelt KI-Automatisierung, Software und ERP-Lösungen für Schweizer KMU. Lernen Sie unsere Geschichte, unser Team und unsere Werte kennen.",
     "hero": {
       "title": "Über Habb Switzerland",
       "subtitle": "Schweizer Präzision trifft technologische Exzellenz"
+    },
+    "offerings": {
+      "title": "Unsere Lösungen für Schweizer KMU",
+      "intro": "Von der intelligenten ERP-Software bis zur KI-gestützten E-Mail-Automatisierung – entdecken Sie, womit wir Ihr Unternehmen unterstützen.",
+      "linkLabel": "Mehr erfahren"
     },
     "story": {
       "title": "Unsere Geschichte",
@@ -99,7 +106,8 @@
     },
     "team": {
       "title": "Führungsteam",
-      "subtitle": "Lernen Sie die Experten kennen, die unseren Erfolg vorantreiben"
+      "subtitle": "Lernen Sie die Experten kennen, die unseren Erfolg vorantreiben",
+      "intro": "Expertise in Entwicklung, Strategie und Umsetzung – vereint durch Schweizer Präzision."
     }
   },
   "services": {
